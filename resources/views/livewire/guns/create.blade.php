@@ -76,7 +76,7 @@
         </div>
     </div>
 
-    <div class="card mt-4 mx-auto col-md-6">
+    <div class="card mt-4 mx-auto col-md-6" id="shw">
         <div class="card-header bg-secondary">
             <h3 class="text-center">Gun List</h3>
         </div>
@@ -182,8 +182,10 @@
                 </div>
                 <div class="modal-body text-center">
                     <h6>Are you sure you want to remove this gun from the list?</h6>
-                    <p>Model</p>
-                    <input type="text" wire:model="deleteModel" class="col-md-2 float-center text-center" readonly>
+                    <div class="input-group">
+                        <label for="model">Model: </label>
+                        <input type="text" wire:model="deleteModel" class="float-center text-center" id="noBorder" readonly>
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" data-bs-dismiss="modal"><i class="fa-solid fa-eject"></i></button>
@@ -193,3 +195,13 @@
         </div>
     </div>
 </div>
+<style>
+    #noBorder {
+        border: none;
+    }
+
+    #shw {
+        box-shadow: 0px 2px 20px rgba(191, 55, 55, 0.5), 0px 2px 30px rgba(0, 0, 0, 0.5)
+    }
+
+</style>
