@@ -110,7 +110,7 @@
                 @error('editCaliber')<span class="text-danger">No changes saved. {{ $message }}</span>@enderror
                 @error('editCountry')<span class="text-danger">No changes saved. {{ $message }}</span>@enderror
             </table>
-            <button type="submit" class="btn btn-secondary float-end" data-bs-toggle="modal" data-bs-target="#addGun"><i class="fa-regular fa-square-plus"></i> Gun</button>
+            <button type="submit" class="btn btn-secondary float-end" data-bs-toggle="modal" data-bs-target="#addGun"><i class="fa-solid fa-cart-plus"></i></i> Gun</button>
             <div class="col-md-8 mx-auto">
                 @error('model')<span class="text-danger">{{ $message }}</span>@enderror
                 @error('type')<span class="text-danger">{{ $message }}</span>@enderror
@@ -182,10 +182,7 @@
                 </div>
                 <div class="modal-body text-center">
                     <h6>Are you sure you want to remove this gun from the list?</h6>
-                    <div class="input-group">
-                        <label for="model">Model: </label>
-                        <input type="text" wire:model="deleteModel" class="float-center text-center" id="noBorder" readonly>
-                    </div>
+                    <input type="text" wire:model="deleteModel" class="text-center" id="noBorder" readonly>
                 </div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" data-bs-dismiss="modal"><i class="fa-solid fa-eject"></i></button>
