@@ -9,7 +9,7 @@ class Create extends Component
 {
     public $model, $type, $caliber, $country, $guns, $gunID;
     public $editModel, $editType, $editCaliber, $editCountry;
-    public $deleteModel;
+    public $deleteModel, $deleteType, $deleteCaliber, $deleteCountry;
 
     public function resetFields() {
         $this->model    = '';
@@ -44,8 +44,11 @@ class Create extends Component
 
     public function deleteGun($id) {
         $gun = Gun::findOrFail($id);
-        $this->gunID        = $id;
-        $this->deleteModel  = $gun->model;
+        $this->gunID            = $id;
+        $this->deleteModel      = $gun->model;
+        $this->deleteType       = $gun->type;
+        $this->deleteCaliber    = $gun->caliber;
+        $this->deleteCountry    = $gun->country;
     }
 
     public function update() {

@@ -87,7 +87,7 @@
                         <th>Model</th>
                         <th>Weapon Type</th>
                         <th class="text-center">Caliber</th>
-                        <th class="text-center">Country</th>
+                        <th class="text-center">Origin Country</th>
                         <th class="text-center">.....</th>
                     </tr>
                 </thead>
@@ -182,7 +182,12 @@
                 </div>
                 <div class="modal-body text-center">
                     <h6>Are you sure you want to remove this gun from the list?</h6>
-                    <input type="text" wire:model="deleteModel" class="text-center" id="noBorder" readonly>
+                    <div>
+                        <input wire:model="deleteModel" class="text-center" id="noBorder" readonly>
+                        <input wire:model="deleteCaliber" class="text-center" id="noBorder" readonly>
+                        <input wire:model="deleteType" class="text-center" id="noBorder" readonly>
+                        <input wire:model="deleteCountry" class="text-center" id="noBorder" readonly>
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" data-bs-dismiss="modal"><i class="fa-solid fa-eject"></i></button>
