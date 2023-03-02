@@ -81,6 +81,52 @@
             <h3 class="text-center">Gun List</h3>
         </div>
         <div class="card-body">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3 offset-md-2">
+                        <div class="form-floating mb-3">
+                            <select class="form-select" wire:model.lazy="sortGun">
+                                <option value="all">All</option>
+                                <option value="Pistol">Pistol</option>
+                                <option value="Sub-machine Gun">Sub-machine Gun</option>
+                                <option value="Machine Gun">Machine Gun</option>
+                                <option value="Shotgun">Shotgun</option>
+                                <option value="Sawed-off Shotgun">Sawed-off Shotgun</option>
+                                <option value="Rifle">Rifle</option>
+                                <option value="Sniper Rifle">Sniper Rifle</option>
+                                <option value="Assault Rifle">Assault Rifle</option>
+                                <option value="Grenade Launcher">Grenade Launcher</option>
+                                <option value="Minigun">Minigun</option>
+                            </select>
+                            <label>Weapon Type</label>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <div class="form-floating">
+                            <select class="form-select" wire:model.lazy="sortCaliber">
+                                <option value="all">All</option>
+                                <option value=".22 LR">.22 LR</option>
+                                <option value=".380 CP">.380 CP</option>
+                                <option value="9mm">9mm</option>
+                                <option value=".40 S&W">.40 S&W</option>
+                                <option value=".45 ACP">.45 ACP</option>
+                                <option value="10mm">10mm</option>
+                                <option value="5.7 FN">5.7 FN</option>
+                                <option value=".38 SPL">.38 SPL</option>
+                                <option value=".357 MAG">.357 MAG</option>
+                                <option value="5.56 / .233">5.56 / .233</option>
+                            </select>
+                            <label>Caliber</label>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <input type="text" class="form-control" placeholder="Search" wire:model="gunSearch">
+                    </div>
+
+                </div>
+            </div>
             <table class="table table-bordered table-striped border-dark table-hover">
                 <thead class="bg-dark text-secondary">
                     <tr>
@@ -110,7 +156,11 @@
                 @error('editCaliber')<span class="text-danger">No changes saved. {{ $message }}</span>@enderror
                 @error('editCountry')<span class="text-danger">No changes saved. {{ $message }}</span>@enderror
             </table>
-            <button type="submit" class="btn btn-secondary float-end" data-bs-toggle="modal" data-bs-target="#addGun"><i class="fa-solid fa-cart-plus"></i></i> Gun</button>
+            <div class="offset-md-8">
+                {{ $guns }}
+            </div>
+
+            <button type="submit" class="btn btn-secondary offset-md-10" data-bs-toggle="modal" data-bs-target="#addGun"><i class="fa-solid fa-cart-plus"></i></i> Gun</button>
             <div class="col-md-8 mx-auto">
                 @error('model')<span class="text-danger">{{ $message }}</span>@enderror
                 @error('type')<span class="text-danger">{{ $message }}</span>@enderror

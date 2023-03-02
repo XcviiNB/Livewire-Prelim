@@ -13,6 +13,6 @@ class GunSeeder extends Seeder
      */
     public function run()
     {
-        Gun::factory(8)->create();
+        Gun::factory(30)->create();
     }
 }

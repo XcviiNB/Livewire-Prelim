@@ -4,12 +4,17 @@ namespace App\Http\Livewire\Guns;
 
 use App\Models\Gun;
 use Livewire\Component;
+use Livewire\WithPagination;
 
 class Create extends Component
 {
-    public $model, $type, $caliber, $country, $guns, $gunID;
+    public $model, $type, $caliber, $country, $gunID, $gunSearch;
     public $editModel, $editType, $editCaliber, $editCountry;
     public $deleteModel, $deleteType, $deleteCaliber, $deleteCountry;
+    public $sortGun = 'all', $sortCaliber = 'all';
+    use WithPagination;
+
+    protected $paginationTheme = 'bootstrap';
 
     public function resetFields() {
         $this->model    = '';
@@ -77,10 +82,26 @@ class Create extends Component
         session()->flash('deleted', 'Gun removed from list.');
     }
 
+    public function sortGuns() {
+        $query = Gun::orderBy('model')->search($this->gunSearch);
+        if ($this->sortGun != 'all') {
+            $query->where('type', $this->sortGun);
+        }
+
+        if ($this->sortCaliber != 'all') {
+            $query->where('caliber', $this->sortCaliber);
+        }
+
+        $guns = $query->paginate(9);
+        return compact('guns');
+
+    }
+
     public function render()
     {
-        $this->guns= Gun::all();
-        return view('livewire.guns.create');
+
+
+        return view('livewire.guns.create', $this->sortGuns());
     }
 
     public $listeners = ['removeGun'=>'destroy'];
